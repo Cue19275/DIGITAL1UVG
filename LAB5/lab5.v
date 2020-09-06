@@ -30,7 +30,7 @@ module mux8_1(
 
 	mux4_1 r1(s1[1:0], A2, B2, C2, D2, Y2_1);
 	mux4_1 r2(s1[1:0], E2, F2, G2, H2, Y2_2);
-	mux2_1 r3(s1[2], Y2_1, Y2_2, Y2);
+	mux2_1 r3(s1[2]. Y2_1, Y2_2, Y2);
 endmodule
 
 //Tabla 1 con mux 8:1
@@ -88,17 +88,17 @@ module T2Mux4_1(
 	output wire OUT_5
 	);
 	
-	wire	[1:0]s1;
-	wire hi, lo;
-	assign lo = 0;
-	assign hi = 1;
+	wire	[1:0]s1, hi, lo;
+	assign	hi = 1;
+	assign	lo = 0;
 	assign	s1[0] = B;
 	assign	s1[1] = A;
+
 	mux4_1 	op5(s1[1:0], hi, lo, hi, ~C, OUT_5);
 endmodule
 
 module T2Mux2_1(
-	input wire A, B, C,
+	input wire A, B, C
 	output wire OUT_6
 	);
 	wire	s1, x1, x2;

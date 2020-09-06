@@ -1,4 +1,4 @@
-
+                  
 module testbench();
 	reg p1, p2, p3, p4, p5,p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18;
 	wire Y1, Y2, Y3, Y4, Y5, Y6, Y7, Y8,Y9, Y10, Y11;
