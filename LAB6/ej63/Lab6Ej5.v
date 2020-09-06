@@ -54,12 +54,12 @@ module Ej62 (
 
 wire S2F, S1F, S0F, S2, S1, S0;
 
-assign S2F = (~S2 & S1 & S0 & A) | (~S2 & ~S1 & ~S0 & ~A) | (S2 & ~S1 & S0) | (S2 & ~S0 & A) | (S2 & S1 &~A); 
-assign S1F = (~S1 & S0 & A) | (S1 & ~S0 & A) | (S1 & S0 & ~A) | (~S1 & ~S0 & A);
+assign S2F = (~S2 & S1 & S0 & A) | (~S2 & ~S1 & ~S0 & ~A) | (S2 & ~S1 & S0) | (S2 & ~S0 & A) | (S2 & S1 & ~A); 
+assign S1F = (~S1 & S0 & A) | (S1 & ~S0 & A) | (S1 & S0 & ~A) | (~S1 & ~S0 & ~A);
 assign S0F = (~S0);
 
 assign Y2 = (S2);
-assign Y1 = (~S2 & S1) | (~S2 & S1);
+assign Y1 = (~S2 & S1) | (S2 & ~S1);
 assign Y0 = (~S1 & S0) | (S1 & ~S0);
 
 FFD k0(S0F, clck2, rset, S0);
