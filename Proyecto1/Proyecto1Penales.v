@@ -68,13 +68,14 @@ endmodule
 
 //Modulo de antirebote de un pushb
 module antirebote (
-	input wire bot, clk, rst,
-	output wire b_ar
+	input wire bo, clk, rst, en,
+	output wire bar
 );
 wire A, B;
-assign B = (~A & bot)|(A & bot);	 
-FFD1B r0(clk, rst, 1'b1, B, A);
-assign b_ar	  = (~A & bot);
+	 
+FFD1B r0(clk, rst, en, bo, A);
+assign B = ~A;
+assign bar	 = (B & bo);
 
 endmodule
 
@@ -134,7 +135,7 @@ FFD3B r3(clk, rst, en, FS, S);
 endmodule
 
 module emp_contpen(
-	input wire BM1, BM2, K, noT, clk, rst,
+	input wire BM1, BM2, K, noT, clk, rst, en,
 	output wire [2:0] Cont5p,
 	output wire FIN5P, ENJ5,
 	output wire [2:0] Cont3p,
@@ -145,8 +146,8 @@ wire UM2;
 wire UE3P;
 wire UE5P;
 
-antirebote r4(BM1, clk, rst, UM1);
-antirebote r5(BM2, clk, rst, UM2);
+antirebote r4(BM1, clk, rst, en, UM1);
+antirebote r5(BM2, clk, rst, en, UM2);
 enable_conts r6(UM1, UM2, clk, rst, UE3P, UE5P);
 pen3 r7(K, noT, clk, rst, UE3P, Cont3p, FIN3P, ENJ3);
 pen5 r8(K, noT, clk, rst, UE5P, Cont5p, FIN5P, ENJ5);

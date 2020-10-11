@@ -1,5 +1,5 @@
 $date
-	Sun Oct 11 05:23:15 2020
+	Sun Oct 11 06:10:42 2020
 $end
 $version
 	Icarus Verilog
@@ -11,29 +11,31 @@ $scope module testbench $end
 $var wire 1 ! Y $end
 $var reg 1 " bot $end
 $var reg 1 # clk $end
-$var reg 1 $ rst $end
+$var reg 1 $ en $end
+$var reg 1 % rst $end
 $scope module d9 $end
-$var wire 1 % B $end
-$var wire 1 ! b_ar $end
-$var wire 1 " bot $end
+$var wire 1 & B $end
+$var wire 1 ! bar $end
+$var wire 1 " bo $end
 $var wire 1 # clk $end
-$var wire 1 $ rst $end
-$var wire 1 & A $end
+$var wire 1 $ en $end
+$var wire 1 % rst $end
+$var wire 1 ' A $end
 $scope module r0 $end
-$var wire 1 % D $end
+$var wire 1 " D $end
 $var wire 1 # clk $end
-$var wire 1 ' en $end
-$var wire 1 $ rst $end
-$var reg 1 & Q $end
+$var wire 1 $ en $end
+$var wire 1 % rst $end
+$var reg 1 ' Q $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-1'
-0&
-x%
+0'
+1&
+1%
 1$
 1#
 x"
@@ -41,36 +43,37 @@ x!
 $end
 #1
 0#
-1%
-1!
-1"
-0$
-#2
 0!
-1&
+0"
+0%
+#2
 1#
 #3
 0#
 #4
+0&
+1'
 1#
+0!
+1"
 #5
 0#
 #6
 1#
 #7
-0&
 0#
-0%
-1$
 0"
 #8
+1&
+0'
 1#
 #9
 0#
 #10
+0&
+1'
 1#
-1%
-1!
+0!
 1"
 #11
 0#
@@ -78,17 +81,18 @@ $end
 1#
 #13
 0#
-0%
-0!
 0"
 #14
+1&
+0'
 1#
 #15
 0#
 #16
+0&
+1'
 1#
-1%
-1!
+0!
 1"
 #17
 0#
@@ -96,17 +100,18 @@ $end
 1#
 #19
 0#
-0%
-0!
 0"
 #20
+1&
+0'
 1#
 #21
 0#
 #22
+0&
+1'
 1#
-1%
-1!
+0!
 1"
 #23
 0#
@@ -114,17 +119,18 @@ $end
 1#
 #25
 0#
-0%
-0!
 0"
 #26
+1&
+0'
 1#
 #27
 0#
 #28
+0&
+1'
 1#
-1%
-1!
+0!
 1"
 #29
 0#
@@ -132,17 +138,18 @@ $end
 1#
 #31
 0#
-0%
-0!
 0"
 #32
+1&
+0'
 1#
 #33
 0#
 #34
+0&
+1'
 1#
-1%
-1!
+0!
 1"
 #35
 0#
@@ -150,10 +157,10 @@ $end
 1#
 #37
 0#
-0%
-0!
 0"
 #38
+1&
+0'
 1#
 #39
 0#
