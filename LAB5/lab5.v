@@ -107,4 +107,4 @@ module T2Mux2_1(
 	assign	x2 = ~(B & C);
 
 	mux2_1 op6(s1, x1, x2, OUT_6); 
-endmodule
+endmodule 
