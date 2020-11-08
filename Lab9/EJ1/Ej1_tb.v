@@ -16,7 +16,7 @@ always
   #2 clk <= ~clk;
   initial begin
     $display("Lab9_Ej1");
-    $display("clk rst en D D2 D4|Q Q2 Q4");
+    $display("clk   rst   en  D   D2  D4|Q Q2");
     $display("------------------|----------------");
     $monitor("%b %b %b %b %b   %b|%b %b  %b", clk, rst, en, D, D2, D4, Q, Q2, Q4);
     rst=0; clk=0; en= 0; D=1'b1; D2=2'b10; D4=4'b1100;

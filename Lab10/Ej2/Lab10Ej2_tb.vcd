@@ -1,0 +1,272 @@
+$date
+	Sat Nov 07 23:04:51 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench $end
+$var wire 1 ! Z $end
+$var wire 4 " O [3:0] $end
+$var wire 1 # C $end
+$var reg 3 $ Sel [2:0] $end
+$var reg 1 % clk $end
+$var reg 1 & en $end
+$var reg 1 ' enb1 $end
+$var reg 1 ( enb2 $end
+$var reg 4 ) in [3:0] $end
+$var reg 1 * rst $end
+$scope module rt $end
+$var wire 3 + Sel [2:0] $end
+$var wire 1 % clk $end
+$var wire 1 & en $end
+$var wire 1 ' enb1 $end
+$var wire 1 ( enb2 $end
+$var wire 4 , in [3:0] $end
+$var wire 1 * rst $end
+$var wire 1 ! Z $end
+$var wire 4 - OALU [3:0] $end
+$var wire 4 . O [3:0] $end
+$var wire 1 # C $end
+$var wire 4 / BB [3:0] $end
+$var wire 4 0 ACB [3:0] $end
+$scope module P1 $end
+$var wire 1 % clk $end
+$var wire 1 & en $end
+$var wire 1 * rst $end
+$var wire 4 1 Q [3:0] $end
+$var wire 4 2 D [3:0] $end
+$scope module r2 $end
+$var wire 2 3 D [1:0] $end
+$var wire 1 % clk $end
+$var wire 1 & en $end
+$var wire 1 * rst $end
+$var wire 2 4 Q [1:0] $end
+$scope module r0 $end
+$var wire 1 5 D $end
+$var wire 1 % clk $end
+$var wire 1 & en $end
+$var wire 1 * rst $end
+$var reg 1 6 Q $end
+$upscope $end
+$scope module r1 $end
+$var wire 1 7 D $end
+$var wire 1 % clk $end
+$var wire 1 & en $end
+$var wire 1 * rst $end
+$var reg 1 8 Q $end
+$upscope $end
+$upscope $end
+$scope module r3 $end
+$var wire 2 9 D [1:0] $end
+$var wire 1 % clk $end
+$var wire 1 & en $end
+$var wire 1 * rst $end
+$var wire 2 : Q [1:0] $end
+$scope module r0 $end
+$var wire 1 ; D $end
+$var wire 1 % clk $end
+$var wire 1 & en $end
+$var wire 1 * rst $end
+$var reg 1 < Q $end
+$upscope $end
+$scope module r1 $end
+$var wire 1 = D $end
+$var wire 1 % clk $end
+$var wire 1 & en $end
+$var wire 1 * rst $end
+$var reg 1 > Q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module p0 $end
+$var wire 4 ? S [3:0] $end
+$var wire 1 ' en $end
+$var wire 4 @ Q [3:0] $end
+$upscope $end
+$scope module p2 $end
+$var wire 4 A B [3:0] $end
+$var wire 3 B Sel [2:0] $end
+$var wire 4 C W [3:0] $end
+$var reg 5 D AI [4:0] $end
+$var reg 1 # C $end
+$var reg 4 E O [3:0] $end
+$var reg 1 ! Z $end
+$upscope $end
+$scope module p3 $end
+$var wire 4 F S [3:0] $end
+$var wire 1 ( en $end
+$var wire 4 G Q [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bz G
+bz F
+bz E
+b0zzzz D
+bx C
+b10 B
+bz A
+bz @
+b11 ?
+x>
+z=
+x<
+z;
+bx :
+bz 9
+x8
+z7
+x6
+z5
+bx 4
+bz 3
+bz 2
+bx 1
+bx 0
+bz /
+bz .
+bz -
+b11 ,
+b10 +
+0*
+b11 )
+0(
+0'
+0&
+0%
+b10 $
+0#
+bz "
+0!
+$end
+#2
+1%
+#4
+b0zzzz D
+0>
+b0 :
+0<
+08
+b0 0
+b0 1
+b0 C
+b0 4
+06
+0%
+1*
+#6
+1%
+#8
+0%
+0*
+#10
+1%
+#12
+0%
+0;
+0=
+15
+17
+b11 "
+b11 .
+b11 G
+b0 9
+b11 3
+b11 -
+b11 2
+b11 E
+b11 F
+b11 D
+b11 /
+b11 @
+b11 A
+1&
+1'
+1(
+#14
+b11 D
+16
+b11 0
+b11 1
+b11 C
+b11 4
+18
+1%
+#16
+0%
+b10 /
+b10 @
+b10 A
+b11 D
+b10 )
+b10 ,
+b10 ?
+b0 $
+b0 +
+b0 B
+#18
+1%
+#20
+0%
+0&
+#22
+1%
+#24
+0%
+07
+b1 "
+b1 .
+b1 G
+b1 3
+b1 -
+b1 2
+b1 E
+b1 F
+b1 D
+b1 $
+b1 +
+b1 B
+#26
+1%
+#28
+0%
+1;
+b101 "
+b101 .
+b101 G
+b1 9
+b101 -
+b101 2
+b101 E
+b101 F
+b101 D
+b11 $
+b11 +
+b11 B
+#30
+1%
+#32
+0%
+1=
+b1101 "
+b1101 .
+b1101 G
+b11 9
+b1101 -
+b1101 2
+b1101 E
+b1101 F
+b11101 D
+b100 $
+b100 +
+b100 B
+#34
+1%
+#36
+0%
