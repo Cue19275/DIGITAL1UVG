@@ -1,3 +1,10 @@
+//Carlos Cuellar "19275"
+//Digital 1 UVG 2020
+//Proyecto #2
+
+//Se crea el modulo de la ROM el cual al establecer un arreglo, se llenan las direcciones
+//Con informacion contenida en un archivo .list
+//El contenido de dicho archivo sería el código en asm para indicarle que hacer al procesador
 module ROM(
 	input wire [11:0] DIR,
 	output wire [7:0] Y
@@ -12,7 +19,10 @@ module ROM(
 	assign Y = memoria[DIR];
 endmodule 
 
-
+//Módulo del program counter
+//Con cada flanco de reloj aumente el valor de la salida
+//Necesita de un reset para empezar en 0
+//Se le pueden cargar valores para hacer la cuenta a partir de numeros distintos a 0
 module Contador (
 	input wire clk,    // Clock
 	input wire clk_en, // Clock Enable
@@ -35,6 +45,9 @@ module Contador (
 
 endmodule
 
+//Es una lookup table
+//A raíz de sus inputs nos dará un outcome específico.
+//Utiliza el casex para contemplar sus distitntos casos con dont cares
 module microCode(
 	input wire [6:0]S, 
 	output reg [12:0]Q
@@ -69,6 +82,7 @@ module microCode(
 endmodule
 
 //Puede ser varias cosas
+//Usa el operador ternario para indicar cuando se debe de dejar pasar el valor o tirar alta impedancia
 module bufftri(
 	input wire en,
 	input wire [3:0]S,
@@ -79,6 +93,7 @@ module bufftri(
 
 endmodule
 
+//FlipFlop tipo D de un bit
 module FFD1B (input wire clk, rst, en,
             input wire D, 
             output reg Q);
@@ -92,6 +107,7 @@ module FFD1B (input wire clk, rst, en,
             end
 endmodule
 
+//FlipFlop tipo T utilitzado para el phase
 module FFT(input wire clk, rst,
              output wire K);
 	wire T; 
@@ -100,6 +116,7 @@ module FFT(input wire clk, rst,
 
 endmodule
 
+//FlipFlop tipo D de dos bits
 module FFD2B(
       input wire clk, rst, en,
       input wire [1:0]D, 
@@ -111,7 +128,7 @@ module FFD2B(
 
 endmodule
 
-//Puede ser varias cosas
+//FlipFlop tipo D de 4 bits
 module FFD4B(
       input wire clk, rst, en,
       input wire [3:0]D, 
@@ -123,6 +140,7 @@ module FFD4B(
 
 endmodule
 
+//Es un flipflopD de 8 bits, pero su salida esta separada en 4 y 4 bits, para direccionarlas distitno
 module fetch(
       input wire clk, rst, en,
       input wire [7:0]D, 
@@ -134,6 +152,7 @@ module fetch(
 
 endmodule
 
+//FlipFlop de 4 bits
 module Acumulador(
       input wire clk, rst, en,
       input wire [3:0]D, 
@@ -144,6 +163,8 @@ module Acumulador(
       FFD2B r3(clk, rst, en, D[3:2], Q[3:2]);
 endmodule
 
+//Se usan cases para indicar según el selector que operaciones se harán con las entradas de la alu
+//Se agregan bits en un arreglo para poder contemplar el carry
 module Alu(input wire [3:0] W, 
             input wire [3:0]B, 
             input wire [2:0] Sel, 
@@ -175,6 +196,8 @@ module Alu(input wire [3:0] W,
 
 endmodule
 
+//Modulo de la ram
+//A partir de bloques always y el tipo de variable inout, se logra hacer el espacio bidireccional
 module RAM(
 	input wire cs, we, //chipselect y write enable
 	input wire [11:0] dir, //dirección de la memoria
@@ -201,7 +224,7 @@ module RAM(
 
 endmodule 
 
-
+//Union de todos los modulos en uno solo que pasara a ser el procesador completo
 module uP(
 	input wire clock, reset,
 	input wire [3:0] pushbuttons,
@@ -215,13 +238,16 @@ module uP(
 	output wire [11:0] PC,
 	output wire [11:0] address_RAM	
 	);
-	wire [12:0] microCode_O;
-	wire [3:0]  ALU_O;
-	wire Zero;
+	wire [12:0] microCode_O; //Se hace un wire para unir la salida del microcode con los enables de los distintos modulos
+	wire [3:0]  ALU_O; //Bus para unir la salida de la alu con la entrada del acuu y entrada a un buffertri
+	wire Zero; //Aquí recaen las banderas que saca la alu, para usaralas como entradas en un FFD
 	wire Carry;
-	wire [6:0] microCode_I;
-	assign address_RAM = {oprnd, program_byte};
-	assign microCode_I = {instr, c_flag, z_flag, phase}; //instr carry zero phase **CAMBIAR DEPSUES
+	wire [6:0] microCode_I; //Se crea una variable para las entradas del decode
+	assign address_RAM = {oprnd, program_byte}; //Arreglo para juntar las entradas de la RAM y DIRECCIONAR
+	assign microCode_I = {instr, c_flag, z_flag, phase}; //ESte arreglo une las distitnas entradas del decode
+	//Se procede a llamar a los modulos uniendolos con las variables de entrada y salida del
+	//Modulo principal uP y con las variables de union creadas dentro de este modulo
+
 	Contador pcmod(clock, microCode_O[12], reset, microCode_O[11], address_RAM, PC);
 	ROM 	 romterm(PC, program_byte);
 	fetch    fetchmod(clock, reset, ~phase, program_byte, instr, oprnd);
