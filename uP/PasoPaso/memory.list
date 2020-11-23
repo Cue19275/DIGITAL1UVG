@@ -1,0 +1,23 @@
+50	//IN 0x0
+50	//IN 0x0
+51  //IN 0x1
+AE  //ADDI 0XE
+D1  //OUT 0x1 ;Esto me tiene que dar de resultado F en el FF_out
+2F  //CMPI 0xF ;Esto debería de encender la bandera Zero ya que se comparan dos números iguales
+A1  //ADDI 0x1 ;Esto debería de dar de resultado 0 y encencer la bandera del carry
+80  //JZ  0x00B ;En tóría tengo Z en HGIH pr lo que debería de saltar a la instrucción en la linea 11
+0A  
+44  //LIT 0x4
+42  //LIT 0X2 ;Pasa el valor de 2 al accu y se van a apagar mis 2 banderas
+C0  //JMP 0x00F ;Si funciona tiene que saltar a la línea 15, donde se hará una suma
+0F
+44  //LIT 0x4
+44  //LIT 0x4
+A1  //ADDI 0XE ;La suma me tiene que dar FF de resultado
+D1  //OUT 0x1 ;Esto me tiene que dar de ressultado 3 en el FF_out
+7A //ST 0xAAA ;Voy a guardar 0011 (3) en la localidad AAA de la RAM
+AA
+4C //LIT 0x0C
+BA //ADMM 0xAAA
+AA
+D1  //OUT 0x1 ;Esto me tiene que dar de ressultado 3 en el FF_out
